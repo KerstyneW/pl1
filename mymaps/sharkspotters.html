@@ -5,34 +5,26 @@
        Submit this page's URL (not the embed url) when asked during your practical lab -->
   <!-- Public URL: https://KerstyneW.github.io/pl1/mymaps/sharkspotters.html  -->
   <head>
-    <style>
-      * {font-family: "Trebuchet MS","sans-serif";}  
-      h1 {font-size: 20pt; color:darkblue; font-weight: bold; padding: 5%;}
-      h2 {font-size: 20pt; color:darkblue; font-weight: bold; text-align: center;}
-      p {font-size: 15pt; padding-left: 5%; padding-right: 5%;}
-      a:link {color: blue; text-decoration: underline;}
-      a:hover, a:visited {color: white; text-decoration: underline;}
-      body{background-color:slategray}
-      body, html {width: 100%; height: 100%; margin: 0; padding: 0} /* uses FlexBox https://www.w3schools.com/css/css3_flexbox.asp */
-      .row-container {display: flex; width: 100%; height: 100%; flex-direction: column; background-color: white; overflow: hidden;}
-      .first-row {background-color: slategrey; }
-      .second-row {flex-grow: 1; border: none; margin: 0; padding: 0;}
-    </style>
+    <link rel="stylesheet" href="css/sharkcss.css">
     <title> Sharkspotters South Africa Coastline</title>
   </head>
 
 <body>
-  <div>
-    <h1> Shark sightings along the False Bay Coastline in South Africa </h1>
-    <img
-  </div>
+<!-- Hero image outline taken from the website my group and I created last term.-->
+  <div class="heroimagecontainercontainer">
+    <div class="heroimagecontainer">
+      <!-- Image taken from https://lp-cms-production.imgix.net/news/2015/11/Shark.jpg?auto=format&fit=crop&sharp=10&vib=20&ixlib=react-8.6.4&w=850&q=75&dpr=1--> 
+    </div>
+    </div>
+  <h1> Shark sightings along the False Bay Coastline</h1>  
   <p> As part of my Web GIS Development course at Fleming college I was required to complete a
     <a href="https://www.google.com/earth/outreach/learn/visualize-your-data-on-a-custom-map-using-google-my-maps/">Google My Maps</a> 
     introductory tutorial. The tutorial provided step-by-step instructions to create the following map which shows shark sightings at different
     beaches along the False Bay Coastline in South Africa. </p>
   <p> The data provided to complete the tutorial was courtesy of 
     <a href="https://sharkspotters.org.za/safety/shark-sightings/">Shark Spotters</a> and the MAPA Project. </p>
-  <div class="row-container">
+  
+    <div class="row-container">
     <div class="first-row">
       <h2>Sharkspotters MyMaps</h1>
     </div>
