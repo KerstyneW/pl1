@@ -9,13 +9,23 @@ Be creative and use multiple parameters from the API documentation to earn a top
 ## Directions URL
 
 ```
-https://YourDirectionsApiURLGoesHere
+https://maps.googleapis.com/maps/api/directions/json?
+origin=place_id:ChIJrRDzO2Boj1QRNCdIenv189M
+&destination=place_id:ChIJvwNEBzMEj1QRgCfJl89AmXw
+&avoid=highways
+&departure_time=1662031800
+&traffic_model=pessimistic
+&waypoints=optimize:true
+%7Cplace_id:ChIJ8eXQX-Vzj1QRW5LX2X9MTE4
+%7Cplace_id:ChIJ2y_IbAUNj1QRuJsFm13ExgI
+%7Cplace_id:ChIJswQ27UcNj1QRF0XmYCSzeS4
+&key=AIzaSyCM-WWHYHIKY-do4kquMy9Z4wQaQx51AuE
 ```
 
 ## Next paste the full JSON response to this query here:
 
 ```JSON
-PASTE_YOUR_JSON_RESULTS_HERE
+
 ```
 ____
 ## Rubric
