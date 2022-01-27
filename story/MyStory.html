@@ -21,39 +21,60 @@
         </style>
         <script>
             // Initially taken from https://developers.google.com/maps/documentation/javascript/examples/infowindow-simple
+            // Found a solution on stackoverflow to have mulitple markers and infowindows https://stackoverflow.com/questions/37435203/multiple-distinct-infowindows-on-google-map
+            // Modified for my area/ needs
             // Want to include photos from my vacation around where they were taken and a little blurb in pop-ups.
-           function initMap() {
-            const map = new google.maps.Map(document.getElementById("map"), {
-                zoom: 9,
-                center: { lat: 48.7757, lng: -123.7490 },
-            });
-            // Image marker for Goldstream Provincial Park
-            const contentImg1 =
-            '<div id="content">' +
-            '<div id="siteNotice">' +
-            "</div>" +
-            '<h1 id="firstHeading" class="firstHeading">Goldstream Provincial Park</h1>' +
-            '<div id="bodyContent">' +
-            '<p> <img src="images/GoldstreamPP.jpg" alt="Me in Goldstream Provincial Park">' +
-            "</div>" +
-            "</div>";
-        const infowindow = new google.maps.InfoWindow({
-            content: contentImg1,
-        });
-        const marker = new google.maps.Marker({
-            position: {lat: 48.4632, lng: -123.5709},
-            map,
-            title: "Goldstream Provincial Park",
-        });
+            function initMap() {
+                const map = new google.maps.Map(document.getElementById("map"), {
+                    zoom: 9,
+                    center: { lat: 48.7757, lng: -123.7490 },
+                });
+            
+            function addMarkerwithInfoWindow (map, marker_position, infowindow_content){
+                var marker, infowindow, contentString;
+                marker = new google.maps.Marker({
+                    position: marker_position,
+                    map:map
+                });
+                contentString = infowindow_content;
+                infowindow = new google.aps.InfoWindow({
+                    content: contentString
+                });
+                marker.addListener('click', function(){
+                    infowindow.open(map, marker);
+                });
+            }
 
-        marker.addListener("click", () => {
-            infowindow.open({
-            anchor: marker,
-            map,
-            shouldFocus: false,
-            });
-        });
-        }
+            addMarkerwithInfoWindow(map, new google.maps.LatLng(48.4632, -123.5709), 
+            '<div> <h1> Goldstream Provincial Park </h1> <img src="images/GoldstreamPP.jpg" alt="Me in Goldstream Provincial Park"></div>')
+
+            }
+        //     const contentImg1 =
+        //     '<div id="content">' +
+        //     '<div id="siteNotice">' +
+        //     "</div>" +
+        //     '<h1 id="firstHeading" class="firstHeading">Goldstream Provincial Park</h1>' +
+        //     '<div id="bodyContent">' +
+        //     '<p> ' +
+        //     "</div>" +
+        //     "</div>";
+        // const infowindow = new google.maps.InfoWindow({
+        //     content: contentImg1,
+        // });
+        // const marker = new google.maps.Marker({
+        //     position: {lat: 48.4632, lng: -123.5709},
+        //     map,
+        //     title: "Goldstream Provincial Park",
+        // });
+
+        // marker.addListener("click", () => {
+        //     infowindow.open({
+        //     anchor: marker,
+        //     map,
+        //     shouldFocus: false,
+        //     });
+        // });
+        // }
         </script>
     </head>
     <body>
