@@ -20,7 +20,7 @@
             }
         </style>
         <script>
-            // Initially taken from https://developers.google.com/maps/documentation/javascript/examples/icon-simple
+            // Initially taken from https://developers.google.com/maps/documentation/javascript/examples/infowindow-simple
             // Want to include photos from my vacation around where they were taken
            function initMap() {
             const map = new google.maps.Map(document.getElementById("map"), {
@@ -28,14 +28,32 @@
                 center: { lat: 48.9085, lng: -123.7327 },
             });
             // Image marker for Goldstream Provincial Park
-            const image1 =
-                "images/GoldstreamPP.jpg";
-            const Goldstream = new google.maps.Marker({
-                position: { lat: 48.46329, lng: -123.57092 },
-                map,
-                icon: image1,
+            const contentImg1 =
+            '<div id="content">' +
+            '<div id="siteNotice">' +
+            "</div>" +
+            '<h1 id="firstHeading" class="firstHeading">Goldstream Provincial Park</h1>' +
+            '<div id="bodyContent">' +
+            '"<p> <img src="images/GoldstreamPP.jpg" alt="Me in Goldstream Provincial Park">' +
+            "</div>" +
+            "</div>";
+        const infowindow = new google.maps.InfoWindow({
+            content: contentImg1,
+        });
+        const marker = new google.maps.Marker({
+            position: {lat: 48.4632, lng: -123.5709},
+            map,
+            title: "Goldstream Provincial Park",
+        });
+
+        marker.addListener("click", () => {
+            infowindow.open({
+            anchor: marker,
+            map,
+            shouldFocus: false,
             });
-            }
+        });
+        }
         </script>
     </head>
     <body>
