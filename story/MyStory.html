@@ -34,6 +34,8 @@
                 contentString = infowindow_content;
                 infowindow = new google.maps.InfoWindow({
                     content: contentString,
+                    // Adding a maxwidth for my info window https://developers.google.com/maps/documentation/javascript/examples/infowindow-simple-max
+                    maxWidth: 400,
                 });
                 marker.addListener('click', function(){
                     infowindow.open(map, marker);
@@ -58,7 +60,7 @@
                     '<p> Northeast of Iron Mine Bay is a beautiful rock outcropping that overlooks the ocean. We stayed for as long as we could before the storm moved it but, no whales' +
                     ' were sighted.</p><div> <img src="images/PikeP.jpg" alt="Pike Point"> </div></div>');
 
-                addMarkerwithInfoWindow(map, new google.maps.LatLng(49.2272, -123.9779), "Nanaimo AirBnB", '<div><h1> Nanaimo AirBnB </h1><h3> December 30, 2021<h3><p> For New Years my partner and I' +
+                addMarkerwithInfoWindow(map, new google.maps.LatLng(49.2272, -123.9779), "Nanaimo AirBnB", '<div><h1> Nanaimo AirBnB </h1><h3> December 30, 2021</h3><p> For New Years my partner and I' +
                     ' rented a Jeep Wrangler and an AirBnb in Nanamio. As gorgeous as the view of The Strait of Georgia was, the highlight of the trip was driving the Wrangler; my dream vehicle.</p>' +
                     '<div><img src="images/Nanaimo.jpg" alt="Nanaimo AirBnb View"> </div></div>');
 
@@ -74,7 +76,6 @@
                     ' everyday we were on Vancouver Island; this was a more chill day. A lovely walk along the beach and driving around to see the sights, a day for looking out the ' +
                     ' window rather than hiking through a forest. </p><div><img src="images/Beach.jpg" alt="My partner looking out over the bay"> </div></div>');
             }
-
         </script>
     </head>
     <body>
