@@ -24,31 +24,32 @@
             // Found a solution on stackoverflow to have mulitple markers and infowindows https://stackoverflow.com/questions/37435203/multiple-distinct-infowindows-on-google-map
             // Modified for my area/ needs
             // Want to include photos from my vacation around where they were taken and a little blurb in pop-ups.
-            function initMap() {
-                const map = new google.maps.Map(document.getElementById("map"), {
-                    zoom: 9,
-                    center: { lat: 48.7757, lng: -123.7490 },
-                });
-            
-            function addMarkerwithInfoWindow (map, marker_position, infowindow_content){
+            function addMarkerwithInfoWindow (map, marker_position, marker_title, infowindow_content){
                 var marker, infowindow, contentString;
                 marker = new google.maps.Marker({
                     position: marker_position,
-                    map:map
+                    map:map,
+                    title: marker_title
                 });
                 contentString = infowindow_content;
                 infowindow = new google.maps.InfoWindow({
-                    content: contentString
+                    content: contentString,
                 });
                 marker.addListener('click', function(){
                     infowindow.open(map, marker);
                 });
             }
 
-            addMarkerwithInfoWindow(map, new google.maps.LatLng(48.4632, -123.5709), +
-            '<div> <h1> Goldstream Provincial Park </h1> <img src="images/GoldstreamPP.jpg" alt="Me in Goldstream Provincial Park"></div>')
+            function initMap() {
+                const map = new google.maps.Map(document.getElementById("map"), {
+                    zoom: 9,
+                    center: { lat: 48.7757, lng: -123.7490 },
+                });
 
+                addMarkerwithInfoWindow(map, new google.maps.LatLng(48.4632, -123.5709), "Goldstream Provincial Park" +
+                '<div> <h1> Goldstream Provincial Park </h1> <p> <img src="images/GoldstreamPP.jpg" alt="Me in Goldstream Provincial Park"> </p> </div>')
             }
+            
         //     const contentImg1 =
         //     '<div id="content">' +
         //     '<div id="siteNotice">' +
