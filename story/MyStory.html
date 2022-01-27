@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Initially took the 'head' setup from simplemaps.html outline -->
+        <title>Christmas Travels</title>
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+        <style>
+        /* Always set the map height explicitly to define the size of the div
+        * element that contains the map. */
+            #map {
+            height: 100%;
+            }
+
+            /* Optional: Makes the sample page fill the window. */
+            html,
+            body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            }
+        </style>
+        <script>
+            // Initially taken from https://developers.google.com/maps/documentation/javascript/examples/icon-simple
+            // Want to include photos from my vacation around where they were taken
+           function initMap() {
+            const map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 4,
+                center: { lat: 48.9085, lng: -123.7327 },
+            });
+            // Image marker for Goldstream Provincial Park
+            const image1 =
+                "images/GoldstreamPP.jpg";
+            const Goldstream = new google.maps.Marker({
+                position: { lat: 48.46329, lng: -123.57092 },
+                map,
+                icon: image1,
+            });
+            }
+        </script>
+    </head>
+    <body>
+        <div id="map"></div>
+
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDv3MGflguusDaLmV_-BUlmuoUI4EbM88w&callback=initMap&v=weekly" async>
+        </script>
+      </body>
+</html>
