@@ -36,7 +36,7 @@
                 marker = new google.maps.Marker({
                     position: marker_position,
                     map:map,
-                    title: marker_title
+                    title: marker_title,
                 });
                 contentString = infowindow_content;
                 infowindow = new google.maps.InfoWindow({
@@ -53,6 +53,7 @@
                 const map = new google.maps.Map(document.getElementById("map"), {
                     zoom: 9,
                     center: { lat: 48.7757, lng: -123.7490 },
+                    mapTypeId: 'hybrid'
                 });
 
                 addMarkerwithInfoWindow(map, new google.maps.LatLng(48.4632, -123.5709), "Goldstream Provincial Park", '<div><h1> Goldstream Provincial Park </h1>' +
@@ -79,9 +80,32 @@
                     ' would not calm down and every photo I took looked a little something like this. We did get to see 3 bald eagles soaring beside' +
                     ' the lookout which more than made up for the weather. </p><div><img src="images/SkyWalk.jpg" alt="Me ontop the Malahat SkyWalk"> </div></div>');
 
-                addMarkerwithInfoWindow(map, new google.maps.LatLng(48.4593, -123.2888), "Beach Walk", '<div><h1> Beach Walk </h1><h3> December 29, 2021 </h3><p> We got outside and explored' +
-                    ' everyday we were on Vancouver Island; this was one of our more easy going adventures. A lovely walk along the beach and driving around to see the sights, a day for looking out the ' +
-                    ' window rather than hiking through a forest. </p><div><img src="images/Beach.jpg" alt="My partner looking out over the bay"> </div></div>');
+                // One more marker for the place we stayed with no info reference (https://developers.google.com/maps/documentation/javascript/examples/marker-simple)
+                new google.maps.Marker({
+                    place_id:ChIJ8eXQX-Vzj1QRW5LX2X9MTE4,
+                    map: map,
+                    title: "Home Base",
+                })
+
+                // Polyline to all infowindows reference (https://developers.google.com/maps/documentation/javascript/examples/polyline-simple)
+                const flightPlanCoordinates = [
+                    {lat:48.6479, lng:-123.4290},
+                    {lat:48.4592, lng:-123.3316},
+                    {lat:48.4632, lng:-123.5709},
+                    {lat:48.4592, lng:-123.3316},
+                    {lat:48.3395, lng:-123.7039},
+                    {lat:48.3373, lng:-123.7087},
+                    {lat:48.4592, lng:-123.3316},
+                    {lat:49.2272, lng:-123.9779},
+                    {lat:48.4592, lng:-123.3316},
+                    {lat:48.5663, lng:-123.5265},
+                ];
+                const flightpath = new google.maps.Polyline({
+                    path: flightPlanCoordinates,
+                    strokeColor: "#9FE2BF",
+                    strokeWeight: 2.5,
+                });
+                flightPath.setMap(map);
             }
         </script>
     </head>
