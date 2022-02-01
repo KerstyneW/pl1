@@ -82,10 +82,10 @@
 
                 // One more marker for the place we stayed with no info reference (https://developers.google.com/maps/documentation/javascript/examples/marker-simple)
                 new google.maps.Marker({
-                    place_id:ChIJ8eXQX-Vzj1QRW5LX2X9MTE4,
+                    position: {lat:48.4592, lng:-123.3316},
                     map: map,
                     title: "Home Base",
-                })
+                });
 
                 // Polyline to all infowindows reference (https://developers.google.com/maps/documentation/javascript/examples/polyline-simple)
                 const flightPlanCoordinates = [
@@ -102,8 +102,10 @@
                 ];
                 const flightpath = new google.maps.Polyline({
                     path: flightPlanCoordinates,
-                    strokeColor: "#9FE2BF",
+                    geodesic: false,
+                    strokeColor: "#FF0000",
                     strokeWeight: 2.5,
+                    strokeOpacity: 1,
                 });
                 flightPath.setMap(map);
             }
